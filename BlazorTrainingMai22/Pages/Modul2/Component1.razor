@@ -1,0 +1,17 @@
+﻿@page "/Attribute"
+<h3>Component1</h3>
+
+<input @bind="variable" class="form-control"/>
+
+<button @onclick="methode" class="btn btn-primary" @ref="button1">test</button>
+<div style="@variable">@variable</div>
+
+@code {
+    ElementReference button1;
+    string variable;
+    void methode()
+    {
+
+        
+    }
+}
