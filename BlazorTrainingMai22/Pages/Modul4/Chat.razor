@@ -32,13 +32,13 @@
     {
         vm.Add(Text);
     }
-    protected override void OnInitialized()
-    {
-        vm.onAdd += UpdateUI;
-    }
-    void UpdateUI()
-    {
-        InvokeAsync(StateHasChanged);
-    }
-
+    //protected override void OnInitialized()
+    //{
+    //    vm.onAdd += UpdateUI;
+    //}
+    //void UpdateUI()
+    //{
+    //    InvokeAsync(StateHasChanged);
+    //}
+    protected override void OnInitialized() => vm.onAdd += () => InvokeAsync(StateHasChanged);
 }
