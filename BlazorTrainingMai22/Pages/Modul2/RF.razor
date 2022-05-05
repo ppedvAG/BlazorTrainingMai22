@@ -1,9 +1,17 @@
-﻿<h3>RF</h3>
-@rf
-
+﻿@page "/rf"
+<h3>RF</h3>
+@*@rf*@
+@*<style>
+h3 {
+    color:red;
+}
+</style>
+<script suppress-error="BL9992">
+alert("hallo");
+</script>*@
 
 
 
 @code {
-    RenderFragment rf=@:<div>test</div>;
+   // RenderFragment rf=@:<div>test</div>;
 }
