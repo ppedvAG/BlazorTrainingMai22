@@ -1,6 +1,8 @@
 ﻿@page "/rf"
 <h3>RF</h3>
-@*@rf*@
+@rf
+@ms
+@((MarkupString)ms)
 @*<style>
 h3 {
     color:red;
@@ -13,5 +15,9 @@ alert("hallo");
 
 
 @code {
-   // RenderFragment rf=@:<div>test</div>;
+    RenderFragment rf =
+    @<div>test</div>
+    ;
+
+    string ms = "<div>test</div>";
 }
