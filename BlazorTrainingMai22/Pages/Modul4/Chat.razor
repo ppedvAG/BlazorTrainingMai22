@@ -1,0 +1,44 @@
+﻿@page "/chat"
+@inject ChatVM vm
+<h3>Chat</h3>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <input  class="form-control"  @bind="Text">
+                <button class="btn btn-outline-secondary" type="button" @onclick="send">save</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+               <ul class="list-group">
+              @foreach (var item in vm.NachrichtenListe)
+              {
+                  <li class="list-group-item" >
+                      @item.Text
+                  </li>
+                  
+              }
+               
+                           
+            </ul>
+        </div>
+    </div>
+</div>
+@code {
+    string Text;
+    void send()
+    {
+        vm.Add(Text);
+    }
+    //protected override void OnInitialized()
+    //{
+    //    vm.onAdd += UpdateUI;
+    //}
+    //void UpdateUI()
+    //{
+    //    InvokeAsync(StateHasChanged);
+    //}
+    protected override void OnInitialized() => vm.onAdd += () => InvokeAsync(StateHasChanged);
+}

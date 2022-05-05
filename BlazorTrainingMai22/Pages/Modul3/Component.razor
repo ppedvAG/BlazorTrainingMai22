@@ -1,0 +1,9 @@
+﻿@page "/bind2"
+<h3>Component</h3>
+<input @bind-value="MyProperty" @bind-value:event="oninput"/>
+
+@MyProperty
+@code {
+    public string MyProperty { get; set; }
+
+}
