@@ -1,0 +1,36 @@
+﻿@page "/vrest"
+@inject IHttpClientFactory http;
+<h3>ToDoRest</h3>
+<button class="btn btn-primary" @onclick="laden">laden</button>
+@if (Liste == null)
+{
+    <p>keine daten ....</p>
+}
+else
+{
+    <ul class="list-group">
+        <Virtualize Items="Liste" ItemSize="25" OverscanCount="5" Context="item" >
+            <Placeholder>
+                daten werden geladen
+            </Placeholder>
+            <ItemContent>
+                <li class="list-group-item">
+                    @item.title
+                </li>
+            </ItemContent>
+        </Virtualize>
+       
+
+    </ul>
+}
+
+@code {
+    public List<Todos> Liste;
+    async Task laden()
+    {
+        var client = http.CreateClient();
+        Liste = await client.GetFromJsonAsync<List<Todos>>("https://jsonplaceholder.typicode.com/todos");
+
+
+    }
+}
