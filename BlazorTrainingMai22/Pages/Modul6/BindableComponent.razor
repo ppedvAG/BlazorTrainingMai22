@@ -1,0 +1,20 @@
+﻿<h3>BindableComponent</h3>
+<input @bind="temp" />
+<hr />
+@code {
+    [Parameter]
+    public string Anzahl { get; set; }
+    [Parameter]
+    public EventCallback<string> AnzahlChanged { get; set; }
+
+    public string temp { 
+        get =>Anzahl; 
+        set
+        {
+            Anzahl = value;
+            AnzahlChanged.InvokeAsync(value);
+
+        } 
+    }
+    
+}

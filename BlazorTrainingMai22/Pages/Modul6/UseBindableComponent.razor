@@ -1,0 +1,7 @@
+﻿@page "/ubc"
+<h3>UseBindableComponent</h3>
+<BindableComponent @bind-Anzahl="MyProperty"></BindableComponent>
+<input value="@MyProperty" @oninput="@((e)=>MyProperty=e.Value.ToString())"/>
+@code {
+    public string MyProperty { get; set; }
+}
