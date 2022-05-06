@@ -1,0 +1,32 @@
+﻿@page "/js"
+@inject IJSRuntime JsRuntime
+<h3>BlazorJS</h3>
+<button @onclick="alert">alert</button><br />
+<button @onclick="confirm">confirem</button><br />
+<button @onclick="eval">eval</button><br />
+<button @onclick="lib">lib</button><br />
+
+@wert
+@code {
+    string wert;
+    void alert()
+    {
+        JsRuntime.InvokeVoidAsync("alert", "Hallo Welt");
+
+    }
+    async Task confirm()
+    {
+        wert= await  JsRuntime.InvokeAsync<string>("prompt", "Hallo Welt");
+
+    }
+    void eval()
+    {
+        JsRuntime.InvokeVoidAsync("eval", "document.title='hallo'");
+    }
+    async Task lib()
+    {
+        var lib = new RazorClassLibrary1.ExampleJsInterop(JsRuntime);
+        wert = await lib.Prompt("Hallo Welt");
+    }
+
+}

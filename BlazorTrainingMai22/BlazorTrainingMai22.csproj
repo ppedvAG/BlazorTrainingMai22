@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Modul8\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RazorClassLibrary1\RazorClassLibrary1.csproj" />
   </ItemGroup>
 
