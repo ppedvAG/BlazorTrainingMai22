@@ -1,0 +1,22 @@
+﻿@page "/upc"
+@using Modul5
+<h3>UseParameterComponent</h3>
+<CascadingValue Value="42">
+    <CascadingValue TValue="string" Value="@("Rot")" Name="Farbe">
+        <ParameterComponent Titel="Hallo Welt"
+                            MyPerson="@(new Person())"
+                            width="100" heigth="200" hannes="toll" style="background-color:silver">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </ParameterComponent>
+    </CascadingValue>
+</CascadingValue>
+@code {
+    Person MyPerson;
+    string Blau = "Blau";
+}
